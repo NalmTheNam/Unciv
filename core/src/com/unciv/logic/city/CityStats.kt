@@ -244,6 +244,17 @@ class CityStats(val city: City) {
         return stats
     }
 
+    private fun getStatPercentPenaltiesFromDarkAge(isDarkAge: Boolean): Stats {
+        val stats = Stats()
+        if (isDarkAge) {
+            stats.production -= 30f
+            stats.culture -= 80f
+            stats.science -= 40f
+            stats.faith -= 50f
+        }
+        return stats
+    }
+
     private fun getStatsPercentBonusesFromUniquesBySource(currentConstruction: IConstruction): StatTreeNode {
         val sourceToStats = StatTreeNode()
 
@@ -458,6 +469,7 @@ class CityStats(val city: City) {
         val newStatsBonusTree = StatTreeNode()
 
         newStatsBonusTree.addStats(getStatPercentBonusesFromGoldenAge(city.civ.goldenAges.isGoldenAge()),"Golden Age")
+        newStatsBonusTree.addStats(getStatPercentPenaltiesFromDarkAge(city.civ.goldenAges.isDarkAge()),"Dark Age")
         addStatPercentBonusesFromBuildings(newStatsBonusTree)
         newStatsBonusTree.addStats(getStatPercentBonusesFromRailroad(), "Railroad")
         newStatsBonusTree.addStats(getStatPercentBonusesFromPuppetCity(), "Puppet City")

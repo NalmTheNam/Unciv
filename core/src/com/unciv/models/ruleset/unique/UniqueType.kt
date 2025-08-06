@@ -712,6 +712,8 @@ enum class UniqueType(
     ConditionalNotWar("when not at war", UniqueTarget.Conditional),
     ConditionalGoldenAge("during a Golden Age", UniqueTarget.Conditional),
     ConditionalNotGoldenAge("when not in a Golden Age", UniqueTarget.Conditional),
+    ConditionalDarkAge("during a Dark Age", UniqueTarget.Conditional),
+    ConditionalNotDarkAge("when not in a Dark Age", UniqueTarget.Conditional),
     ConditionalWLTKD("during We Love The King Day", UniqueTarget.Conditional),
 
     ConditionalHappy("while the empire is happy", UniqueTarget.Conditional),
@@ -839,6 +841,8 @@ enum class UniqueType(
     OneTimeAmountFreePolicies("[positiveAmount] Free Social Policies", UniqueTarget.Triggerable),  // Not used in Vanilla
     OneTimeEnterGoldenAge("Empire enters golden age", UniqueTarget.Triggerable),  // used in Policies, Buildings
     OneTimeEnterGoldenAgeTurns("Empire enters a [positiveAmount]-turn Golden Age", UniqueTarget.Triggerable),
+    OneTimeEnterDarkAge("Empire enters dark age", UniqueTarget.Triggerable),
+    OneTimeEnterDarkAgeTurns("Empire enters a [positiveAmount]-turn Dark Age", UniqueTarget.Triggerable),
     OneTimeFreeGreatPerson("Free Great Person", UniqueTarget.Triggerable),  // used in Policies, Buildings
     OneTimeGainPopulation("[amount] population [cityFilter]", UniqueTarget.Triggerable),  // used in CN tower
     OneTimeGainPopulationRandomCity("[amount] population in a random city", UniqueTarget.Triggerable),

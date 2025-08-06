@@ -129,10 +129,10 @@ internal class WorldScreenTopBarStats(topbar: WorldScreenTopBar) : ScalingTableW
         goldPerTurnLabel.setText(rateLabel(nextTurnStats.gold))
 
         scienceLabel.setText(rateLabel(nextTurnStats.science))
-
+        
         happinessLabel.setText(getHappinessText(civInfo))
 
-        if (civInfo.getHappiness() < 0) {
+        if (civInfo.getHappiness() < 0 || civInfo.goldenAges.isDarkAge()) {
             happinessLabel.setFontColor(malcontentColor)
             happinessContainer.clearChildren()
             happinessContainer.addActor(malcontentImage)
@@ -168,6 +168,8 @@ internal class WorldScreenTopBarStats(topbar: WorldScreenTopBar) : ScalingTableW
         happinessText +=
             if (goldenAges.isGoldenAge())
                 "    {GOLDEN AGE}(${goldenAges.turnsLeftForCurrentGoldenAge})".tr()
+            else if (goldenAges.isDarkAge())
+                "    {DARK AGE}(${goldenAges.turnsLeftForCurrentDarkAge})".tr()
             else
                 " (${goldenAges.storedHappiness.tr()}/${goldenAges.happinessRequiredForNextGoldenAge().tr()})"
         return happinessText

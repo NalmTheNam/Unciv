@@ -112,6 +112,7 @@ class AlertPopup(
             AlertType.WonderBuilt -> addWonderBuilt()
             AlertType.TechResearched -> addTechResearched()
             AlertType.GoldenAge -> addGoldenAge()
+            AlertType.DarkAge -> addDarkAge()
             AlertType.StartIntro -> addStartIntro()
             AlertType.RecapturedCivilian -> shouldOpen = addRecapturedCivilian()
             AlertType.GameHasBeenWon -> addGameHasBeenWon()
@@ -333,6 +334,14 @@ class AlertPopup(
         addGoodSizedLabel("Your citizens have been happy with your rule for so long that the empire enters a Golden Age!").row()
         addCloseButton()
         music.chooseTrack(viewingCiv.civName, MusicMood.Golden, MusicTrackChooserFlags.setSpecific)
+    }
+
+    private fun addDarkAge() {
+        addGoodSizedLabel("DARK AGE")
+        addSeparator()
+        addGoodSizedLabel("Your citizens have been unhappy with your rule for so long that the empire has entered a Dark Age!").row()
+        addCloseButton()
+        music.chooseTrack(viewingCiv.civName, MusicMood.War, MusicTrackChooserFlags.setSpecific)
     }
 
     /** @return false to skip opening this Popup, as we're running in the initialization phase before the Popup is open */

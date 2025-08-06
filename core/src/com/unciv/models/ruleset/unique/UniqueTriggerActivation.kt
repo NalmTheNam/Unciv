@@ -385,6 +385,21 @@ object UniqueTriggerActivation {
                 }
             }
 
+            UniqueType.OneTimeEnterDarkAge, UniqueType.OneTimeEnterDarkAgeTurns -> {
+                return {
+                    if (unique.type == UniqueType.OneTimeEnterDarkAgeTurns) civInfo.goldenAges.enterDarkAge(unique.params[0].toInt())
+                    else civInfo.goldenAges.enterDarkAge()
+
+                    val notificationText = getNotificationText(
+                        notification, triggerNotificationText,
+                        "You enter a Dark Age"
+                    )
+                    if (notificationText != null)
+                        civInfo.addNotification(notificationText, NotificationCategory.General, "StatIcons/Malcontent")
+                    true
+                }
+            }
+
             UniqueType.OneTimeFreeGreatPerson -> {
                 if (civInfo.isSpectator()) return null
                 return {

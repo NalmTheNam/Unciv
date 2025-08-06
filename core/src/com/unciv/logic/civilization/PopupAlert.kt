@@ -31,7 +31,9 @@ enum class AlertType : IsPartOfGameInfoSerialization {
     AttackedAllyMinor,
     RecapturedCivilian,
     GameHasBeenWon,
-    Event
+    Event,
+    
+    DarkAge
 }
 
 class PopupAlert : IsPartOfGameInfoSerialization {
