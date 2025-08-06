@@ -575,7 +575,8 @@
                 "name": "Fascism",
                 "uniques": [
                     "[+100]% [Strategic] resource production",
-                    "[+2] Movement <for [Great General] units>"
+                    "[+2] Movement <for [Great General] units>",
+                    "Empire enters dark age"
                 ],
                 "requires": ["Populism", "Militarism"],
                 "row": 2,
